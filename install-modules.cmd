@@ -1,0 +1,1 @@
+npm i -g gulp glob del semver jsdom through2 gulp-zip gulp-if gulp-bump gulp-htmlmin gulp-rename gulp-replace

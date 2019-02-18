@@ -8,30 +8,66 @@
     <script src="../lib/anime.min.js"></script>
 
     <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
         .square {
             width: 20px;
             height: 20px;
             background-color: darkorange;
             margin: 5px;
+            position: relative;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            background-color: darkcyan;
+            margin: 5px;
+            position: relative;
+            border-radius: 50%;
         }
     </style>
-
-    
 </head>
 
 <body>
-    <div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+    <div class="content">
+        <div class="square ltr"></div>
+        <div class="square rtl"></div>
+        <div class="square ltr"></div>
+    </div>
+
+    <div class="content">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
     </div>
 
     <script>
-        var elements = document.querySelectorAll('.square');
+        var ltr = document.querySelectorAll('.square.ltr');
+        var rtl = document.querySelectorAll('.square.rtl');
 
         anime({
-            targets: elements,
-            translateX: 250
+            targets: ltr,
+            translateX: [-250, 0], //arrays can be used to set the first and the last value
+            duration: 1000,
+            easing: 'easeInOutQuad',
+            backgroundColor: ['#ff0000', '#0000ff'],
+            borderRadius: ['0%', '50%'],
+            opacity: [0, 1],
+        });
+
+        anime({
+            targets: rtl,
+            translateX: [250, 0],
+            duration: 1000,
+            easing: 'easeInOutQuad'
         });
     </script>
 </body>
