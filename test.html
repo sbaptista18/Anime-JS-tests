@@ -5,10 +5,33 @@
 
     <title>Anime JS Test</title>
 
-    <link href="test.less" rel="stylesheet" />
-    <script src="test.js"></script>
+    <script src="../lib/anime.min.js"></script>
+
+    <style>
+        .square {
+            width: 20px;
+            height: 20px;
+            background-color: darkorange;
+            margin: 5px;
+        }
+    </style>
+
+    
 </head>
 
 <body>
+    <div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
 
+    <script>
+        var elements = document.querySelectorAll('.square');
+
+        anime({
+            targets: elements,
+            translateX: 250
+        });
+    </script>
 </body>
